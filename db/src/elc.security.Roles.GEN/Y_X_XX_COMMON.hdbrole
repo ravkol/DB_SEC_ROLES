@@ -1,0 +1,8 @@
+{
+  "role": {
+    "name": "elc.security.Roles.GEN::Y_X_XX_COMMON",
+    "system_privileges": [
+      "CATALOG READ"
+    ]
+  }
+}

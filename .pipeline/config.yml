@@ -27,7 +27,7 @@ steps:
     versioningType: "cloud_noTag"
   npmExecuteLint:
     failOnError: true
-  cloudFoundryDeploy:
+  cloudFoundryDeploy: true
     mtaDeployParameters: "-f --version-rule ALL"
   tmsUpload:
     nodeName: "DEV"

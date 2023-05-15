@@ -1,0 +1,34 @@
+---
+general:
+  buildTool: "mta"
+stages:
+  Build:
+    mavenExecuteStaticCodeChecks: false
+    npmExecuteLint: true
+  Additional Unit Tests:
+    npmExecuteScripts: false
+    karmaExecuteTests: false
+  Acceptance:
+    cloudFoundryDeploy: false
+    cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com/"
+    cfOrg: "2249f1f5trial"
+    cfSpace: "dev"
+    cfCredentialsId: "cfdeploy"
+    uiVeri5ExecuteTests: false
+  Release:
+    cloudFoundryDeploy: true
+    cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com/"
+    cfOrg: "2249f1f5trial"
+    cfSpace: "dev"
+    cfCredentialsId: "cfdeploy"
+    tmsUpload: true
+steps:
+  artifactPrepareVersion:
+    versioningType: "cloud_noTag"
+  npmExecuteLint:
+    failOnError: true
+  cloudFoundryDeploy:
+    mtaDeployParameters: "-f --version-rule ALL"
+  tmsUpload:
+    nodeName: "DEV"
+    credentialsId: "TMS-SK"
